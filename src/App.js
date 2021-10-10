@@ -12,6 +12,9 @@ function App() {
 		<div>
 			<NavBar />
 			<Switch>
+				<Route exact path="/ProductList/:productSlug">
+					<Detail />
+				</Route>
 				<Route exact path="/">
 					<Home />
 				</Route>
