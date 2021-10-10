@@ -87,6 +87,7 @@ header :link:active {
 }
 footer {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }

@@ -7,6 +7,9 @@ import products from "../products";
 
 const ProductList = () => {
 	const [query, setQuery] = useState("");
+	const [name, setName] = useState(
+		products.filter((x) => x.id === 1).map((x) => x.name)
+	);
 	const [cookie, setCookie] = useState(
 		products.filter((x) => x.id === 1).map((x) => x.image)
 	);
@@ -16,7 +19,12 @@ const ProductList = () => {
 			product.name.toLowerCase().includes(query.toLowerCase())
 		)
 		.map((product) => (
-			<ProductItem key={product.id} product={product} setCookie={setCookie} />
+			<ProductItem
+				key={product.id}
+				product={product}
+				setCookie={setCookie}
+				setName={setName}
+			/>
 		));
 
 	return (
@@ -24,6 +32,7 @@ const ProductList = () => {
 			<SearchBar setQuery={setQuery} />
 			<div className="listWrapper">{productList}</div>
 			<footer>
+				<h4>{name}</h4>
 				<img className="footer" src={cookie} />
 			</footer>
 		</>
